@@ -1,14 +1,14 @@
-![头图](https://image.tmdb.org/t/p/original/pSDm8eSxP2QhEy3fq9rPaEWbqVk.png)
+![头图](https://media.themoviedb.org/t/p/w500/18qZgO7zOFacifjIi9PHmIDMCjD.png)
 # Classmate-Record
 ### 这是一个js全栈同学录
-前端：vue3
-后端：nodejs+koa
-数据库：mysql
+前端：vue3</br>
+后端：nodejs+koa</br>
+数据库：mysql</br>
 
 ### 文件目录
 Doc：文档</br>
-Sever：后端
-Front：前端
+Sever：后端</br>
+Front：前端</br>
 
 ### 运行
 1. 安装nodejs
