@@ -1,5 +1,6 @@
 const app = require('./app/index');
+const {APP_PORT} = require('./config/config.default');
 
-app.listen(3000, () => {
-    console.log('Server is running on http://localhost:3000');
+app.listen(APP_PORT, () => {
+    console.log('Server is running on http://localhost:'+APP_PORT);
 })
