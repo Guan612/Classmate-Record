@@ -4,6 +4,7 @@ const photoRouter = require('./photo.router');
 
 const router = new Router();
 
-router.use('/users', userRouter.routes()).use('/photo', photoRouter.routes());
+router.use('/users', userRouter.routes())
+router.use('/photo', photoRouter.routes());
 
 module.exports = router;
