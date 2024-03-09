@@ -17,7 +17,7 @@ url：/login
 ## 一级路由：/photos
 ### 二级路由
 ### 图片列表
-url：/show
+url：/
 方法：GET
 返回值：图片列表
 
