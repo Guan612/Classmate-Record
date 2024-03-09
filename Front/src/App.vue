@@ -1,9 +1,10 @@
 <script setup>
+import headerBar from './components/headerBar.vue';
 
 </script>
 
 <template>
-<h1>同学录</h1>
+    <headerBar></headerBar>
 </template>
 
 <style scoped>
