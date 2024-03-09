@@ -1,10 +1,10 @@
 <script setup>
-import headerBar from './components/headerBar.vue';
+import mainPage from './views/mainPage.vue';
 
 </script>
 
 <template>
-    <headerBar></headerBar>
+    <mainPage/>
 </template>
 
 <style scoped>
