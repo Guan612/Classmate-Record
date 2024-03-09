@@ -1,3 +1,6 @@
+//导入bs作为组件库
+import 'bootstrap/scss/bootstrap.scss'
+import 'bootstrap/dist/js/bootstrap'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
