@@ -16,6 +16,11 @@ url：/login
 # 2. 图片部分
 ## 一级路由：/photos
 ### 二级路由
+### 图片列表
+url：/show
+方法：GET
+返回值：图片列表
+
 ### 图片上传
 url：/upload
 方法：POST
