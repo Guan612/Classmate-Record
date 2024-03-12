@@ -1,5 +1,6 @@
-const {createUser} = require('../service/user.service')
-const {userRegisterError} = require("../constant/err.type")
+const {createUser} = require('../service/user.service');
+const {userRegisterError} = require("../constant/err.type");
+
 
 class UserController{
     //注册函数
