@@ -1,5 +1,8 @@
 const Router = require('koa-router');
+
 const userRouter = new Router();
+
+const {userValidator,verifyUser} = require('../middleware/user.middleware');
 const {
     login,
     register
@@ -9,7 +12,7 @@ userRouter.get('/', (ctx) => {
     ctx.body = 'usersModle';
 })
 
-userRouter.post('/register', register)
+userRouter.post('/register', userValidator, verifyUser, register);
 
 userRouter.post('/login', login)
 
