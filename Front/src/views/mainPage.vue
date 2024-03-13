@@ -6,9 +6,9 @@
 <template>
     <div>
         <headerBar></headerBar>
-        <div>
-            <div class="container mx-auto flex flex-row">
-                <div v-for="card in 10">
+        <div class="">
+            <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4">
+                <div v-for="card in 10" class="flex flex-row m-2">
                     <potoCard></potoCard>
                 </div>
             </div>
