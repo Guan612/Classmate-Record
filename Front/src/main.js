@@ -1,4 +1,4 @@
-//导入bs作为组件库
+//导入tailwindcss作为css
 import "tailwindcss/tailwind.css"
 
 import { createApp } from 'vue'
