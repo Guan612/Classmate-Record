@@ -7,7 +7,7 @@ let cardText = ref("测试文字");
 <template>
     <div class="col">
         <div class="card mb-3" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
+            <img src="https://image.tmdb.org/t/p/original/vo3ODtGpSQxI2ajPuSife2dXNyE.jpg" class="card-img-top" alt="...">
             <div class="card-body">
                 <p class="card-text">{{cardText}}</p>
             </div>
