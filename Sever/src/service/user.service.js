@@ -7,21 +7,22 @@ class UserService {
         // console.log(res)
         return res.dataValues
     };
-
-    async getUerInfo(id, user_name, password, is_admin) {
+    async getUerInfo({ id, user_name, password, is_admin }) {
         const whereOpt = {}
-        id && (whereOpt.id = id);
-        user_name && (whereOpt.user_name = user_name);
-        password && (whereOpt.password = password);
-        is_admin && (whereOpt.is_admin = is_admin);
-
+    
+        id && Object.assign(whereOpt, { id })
+        user_name && Object.assign(whereOpt, { user_name })
+        password && Object.assign(whereOpt, { password })
+        is_admin && Object.assign(whereOpt, { is_admin })
+    
         const res = await User.findOne({
-            attributes: ['id', 'user_name', 'password', 'is_admin'],
-            where: whereOpt
+          attributes: ['id', 'user_name', 'password', 'is_admin'],
+          where: whereOpt,
         })
-
+    
         return res ? res.dataValues : null
     };
+    
 }
 
 module.exports = new UserService;
