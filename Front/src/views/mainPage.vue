@@ -8,7 +8,7 @@
         <headerBar></headerBar>
         <div>
             <div class="container mx-auto flex flex-row">
-                <div v-for="card in 5">
+                <div v-for="card in 10">
                     <potoCard></potoCard>
                 </div>
             </div>
