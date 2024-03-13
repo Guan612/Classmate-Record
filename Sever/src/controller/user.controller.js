@@ -27,6 +27,13 @@ class UserController{
     //登录函数
     async login(ctx, next){
         ctx.body = 'login';
+    };
+
+
+
+    //测试函数
+    async test(ctx, next){
+        ctx.body = 'test';
     }
     
 }
