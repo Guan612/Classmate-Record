@@ -1,18 +1,19 @@
 <script setup>
 import { ref } from 'vue';
+import { NCard } from 'naive-ui';
 
 let cardText = ref("测试文字");
 </script>
 
 <template>
-    <div class="col flex m-3">
-        <div class="card">
-            <img src="https://image.tmdb.org/t/p/original/vo3ODtGpSQxI2ajPuSife2dXNyE.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-                <p class="card-text">{{cardText}}</p>
-            </div>
-        </div>
-    </div>
+    <template>
+        <NCard title="带封面的卡片">
+            <template #cover>
+            <img src="https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg">
+            </template>
+        卡片内容
+        </NCard>
+</template>
 </template>
 
 <style scoped>
