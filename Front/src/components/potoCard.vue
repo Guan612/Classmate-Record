@@ -1,8 +1,8 @@
 <script setup>
 import { ref } from 'vue';
-import { NCard } from 'naive-ui';
+import { NCard, NEllipsis } from 'naive-ui';
 
-let cardText = ref("测试文字");
+let cardText = ref("测试文字chsaihfcajksdc hakccc hnsauikc hdsa");
 let title = ref("测试标题");
 let imgSrc = ref("https://media.themoviedb.org/t/p/w220_and_h330_face/6QRJcTEQWRQIa43cgcS9DXXa60W.jpg");
 
@@ -13,9 +13,9 @@ let imgSrc = ref("https://media.themoviedb.org/t/p/w220_and_h330_face/6QRJcTEQWR
         <template #cover>
             <img :src="imgSrc">
         </template>
-        <div class=" md:text-sm xl:text-base">
+        <n-ellipsis class=" md:text-sm xl:text-base" style="max-width: 200px">
             {{cardText}}
-        </div>
+        </n-ellipsis>
     </n-card>
 </template>
 
