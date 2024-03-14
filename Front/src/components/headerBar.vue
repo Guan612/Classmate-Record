@@ -9,8 +9,10 @@ let search = () => {
 </script>
 
 <template>
-    <div class="w-full h-16 bg-gray-200 p-4 flex navbar">
-        <div class="flex">同学录</div>
+    <div class="pb-5">
+        <div class="w-full h-16 bg-gray-200 p-4 flex navbar">
+            <div class="flex">同学录</div>
+        </div>
     </div>
 </template>
 
