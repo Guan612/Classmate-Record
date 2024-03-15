@@ -4,7 +4,7 @@ import { NCollapse } from 'naive-ui';
 
 <template>
     <n-collapse>
-        <n-collapse-item title="青铜" name="1">>
+        <n-collapse-item title="青铜" name="1">
             <!-- Sidebar -->
             <div class="w-50 bg-gray-800 text-white">
                 <!-- Sidebar content -->
