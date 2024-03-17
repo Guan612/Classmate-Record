@@ -13,7 +13,7 @@ let imgSrc = ref("https://media.themoviedb.org/t/p/w220_and_h330_face/6QRJcTEQWR
         <template #cover>
             <img :src="imgSrc">
         </template>
-        <n-ellipsis class=" md:text-sm xl:text-base" style="max-width: 200px">
+        <n-ellipsis class=" md:text-sm xl:text-base overflow-hidden">
             {{cardText}}
         </n-ellipsis>
     </n-card>
