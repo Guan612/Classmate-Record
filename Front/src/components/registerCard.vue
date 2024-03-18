@@ -1,13 +1,10 @@
 <script setup>
 import { NInput, NButton } from 'naive-ui';
 import { ref } from 'vue';
+import {register} from '../api/api.js'
 let imgSrc = ref('https://upload.wikimedia.org/wikipedia/commons/1/1a/Dolby_logo_2019.svg');
 let user_name = ref('');
 let password = ref('');
-let register = () =>{
-    console.log(user_name.value);
-    console.log(password.value);
-}
 
 </script>
 
