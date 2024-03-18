@@ -24,13 +24,13 @@ let register = () =>{
                         用户
                     </div>
                     <div class="mb-2 md:mb-5">
-                        <n-input placeholder="请输入用户名" v-model="user_name"/>
+                        <n-input placeholder="请输入用户名" v-model:value="user_name"/>
                     </div>
                     <div class="mb-2 md:mb-5">
                         密码
                     </div>
                     <div class="mb-2 md:mb-5">
-                        <n-input placeholder="请输入密码" type="password" v-model="password"/>
+                        <n-input placeholder="请输入密码" type="password" v-model:value="password"/>
                     </div>
                 </div>
             </div>
