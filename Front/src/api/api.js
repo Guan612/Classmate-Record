@@ -1,5 +1,5 @@
 import axios from 'axios';
-//import qs from 'qs';
+import qs from 'qs';
 
 const requrl = axios.create({
     //基本url
@@ -7,10 +7,15 @@ const requrl = axios.create({
     timeout: 2000,
 })
 //注册api
-export const register = async (user_name, password) => {
-    let user = await user_name.value;
-    let pwd = await password.value;
-    console.log(user, pwd)
+export const register = (user_name, password) => {
+   let user = qs.stringify({ user_name });
+   let pwd = qs.stringify({ password });
+   requrl.post('/users/register', {
+       "user_name":user,
+       "password":pwd
+   }).then(function (response) {
+    console.log(response);
+  })
 }
 
 //获取照片api
