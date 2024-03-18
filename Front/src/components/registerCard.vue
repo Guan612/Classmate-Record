@@ -1,10 +1,16 @@
 <script setup>
-import { NInput, NButton } from 'naive-ui';
+import { NInput, NButton, NTooltip } from 'naive-ui';
 import { ref } from 'vue';
-import {register} from '../api/api.js'
+import {register} from '../api/'
+import router from '@/router';
 let imgSrc = ref('https://upload.wikimedia.org/wikipedia/commons/1/1a/Dolby_logo_2019.svg');
 let user_name = ref('');
 let password = ref('');
+
+const handleRegister = async ()=>{
+    await register(user_name.value, password.value);
+    await router.push('/login');
+}
 
 </script>
 
@@ -33,7 +39,7 @@ let password = ref('');
             </div>
             <div class="flex flex-col justify-center">
                 <div class="flex justify-center mb-3">
-                    <n-button type="info" class="text-black" @click="register">注册</n-button>
+                    <n-button type="info" class="text-black" @click="handleRegister">注册</n-button>
                 </div>
             </div>
         </div>
@@ -44,4 +50,4 @@ let password = ref('');
 .card {
     background: linear-gradient(to right, #5BCEFA, #F5A9B8)
 }
-</style>
+</style>../api/index.js
