@@ -8,7 +8,7 @@ const errHandler = require('./errHandler')
 
 const app = new Koa();
 
-app.use(cros())
+app.use(cros());
 app.use(parameter(app));
 app.use(koaBody());
 
