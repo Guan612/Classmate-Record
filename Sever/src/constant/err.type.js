@@ -46,7 +46,7 @@ module.exports = {
     },
     uploadFileError:{
       code: '10201',
-      message: '文件上传失败',
+      message: '照片上传失败',
       result: '',
     },
     unSupportedFileType: {
@@ -54,4 +54,8 @@ module.exports = {
       message: '不支持的文件格式',
       result: '',
     },
+    createPhotoCardError:{
+      code: '10203',
+      message: '创建照片记录失败',
+    }
   }
