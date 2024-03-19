@@ -1,3 +1,6 @@
+const path = require('path');
+const uploadFile = require('../middleware/uploadFile.middleware');
+const uploadFileError = require("../constant/err.type")
 class PhotoController{
 
     async show(ctx, next){
@@ -5,8 +8,14 @@ class PhotoController{
     }
 
     //照片上传api
-    async upload(ctx){
-        ctx.body = 'upload sucess';
+    async upload(ctx,next){
+        const file = ctx.request.file;
+        if(file){
+            uploadFile(file);
+            return path
+        } else {
+            return ctx.app.emit('error', uploadFileError,ctx);
+        }
     }
 }
 
