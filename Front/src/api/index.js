@@ -37,5 +37,5 @@ export const login = async (user_name, password) => {
 
 //获取照片api
 export const getPhoto = () => {
-    return requrl.get('/photos/show')
+    return requrl.get('/photos/')
 }
