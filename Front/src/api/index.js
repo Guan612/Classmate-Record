@@ -18,7 +18,6 @@ export const register = async (user_name, password) => {
     } catch (error) {
         console.error(error);
     }
-
 }
 
 //登录api
@@ -29,7 +28,7 @@ export const login = async (user_name, password) => {
             "password": password
         });
 
-        return(res.data.result);    
+        return(res.data.result);
     } catch (error) {
         console.error(error);
     }
