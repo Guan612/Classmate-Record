@@ -8,8 +8,8 @@ class PhotoController{
 
     //照片上传api
     async upload(ctx,next){
-        //console.log(ctx.request.files)
-        const file = ctx.request.files;
+        // console.log(ctx.request.files.file.path)
+        const {file,path} = ctx.request.files;
         const fileTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp']
         if(file){
             if(!fileTypes.includes(file.type)){
