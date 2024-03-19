@@ -13,7 +13,7 @@ const Photo = seq.define('classmeet_photo', {
         allowNull:true,
         comment:'照片拍摄时间'
     },
-    photo_userid:{
+    user_id:{
         type: DataTypes.INTEGER,
         allowNull:false,
         comment:'照片上传者id'
