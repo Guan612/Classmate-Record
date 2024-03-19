@@ -9,7 +9,7 @@ class PhotoController{
 
     //照片上传api
     async upload(ctx,next){
-        const file = ctx.request.file;
+        const file = ctx.request.files.file;
         if(file){
             uploadFile(file);
             return path
