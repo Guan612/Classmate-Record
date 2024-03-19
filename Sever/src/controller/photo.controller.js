@@ -1,5 +1,7 @@
 const path = require('path');
-const {uploadFileError,unSupportedFileType} = require("../constant/err.type");
+
+const {createPhotoCard} = require('../controller/photo.controller');
+const {uploadFileError,unSupportedFileType,createPhotoCardError} = require("../constant/err.type");
 class PhotoController{
 
     async show(ctx, next){
@@ -26,6 +28,24 @@ class PhotoController{
             return ctx.app.emit('error', uploadFileError,ctx);
         }
     }
+
+    //照片描述
+    async describePhoto(ctx,next){
+        const{photo_name,photo_describe,photo_url,user_id} = ctx.request.body;
+        try {
+            const res = await createPhotoCard({photo_name,photo_describe,photo_url,user_id});
+            ctx.body = {
+                code:0,
+                Message:"添加照片描述成功",
+                result:res
+            };
+        } catch (err) {
+            console.log(err)
+            return ctx.app.emit('error',createPhotoError,ctx);
+        };
+    }
+
+
 }
 
 module.exports = new PhotoController();
