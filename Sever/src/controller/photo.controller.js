@@ -6,7 +6,18 @@ class PhotoController{
 
     //获取所有照片
     async show(ctx, next){
-        ctx.body = 'show';
+        const {pageNum,pageSize} = ctx.request.query;
+        try {
+            const res = await createPhotoCard(pageNum,pageSize);
+            ctx.body = {
+                code:0,
+                message:'获取照片列表成功',
+                result:res
+            }
+        } catch (err) {
+            console.error(err);
+        }
+        
     }
 
     //照片上传api
