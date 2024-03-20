@@ -1,4 +1,4 @@
-const Photo = require('../models/photo.model');
+const Photo = require('../model/photo.model');
 class PhotoService{
 
     //创建
@@ -18,3 +18,5 @@ class PhotoService{
         
     }
 }
+
+module.exports = new PhotoService();

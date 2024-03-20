@@ -1,6 +1,6 @@
 const path = require('path');
 
-const {createPhotoCard} = require('../controller/photo.controller');
+const {createPhotoCard} = require('../service/photo.service');
 const {uploadFileError,unSupportedFileType,createPhotoCardError} = require("../constant/err.type");
 class PhotoController{
 
@@ -31,7 +31,8 @@ class PhotoController{
 
     //照片描述
     async describePhoto(ctx,next){
-        const{photo_name,photo_describe,photo_url,user_id} = ctx.request.body;
+        let {photo_name,photo_describe,photo_url,user_id} = ctx.request.body;
+        console.log(photo_name,photo_describe,photo_url,user_id)
         try {
             const res = await createPhotoCard({photo_name,photo_describe,photo_url,user_id});
             ctx.body = {
@@ -41,7 +42,7 @@ class PhotoController{
             };
         } catch (err) {
             console.log(err)
-            return ctx.app.emit('error',createPhotoError,ctx);
+            return ctx.app.emit('error',createPhotoCardError,ctx);
         };
     }
 
