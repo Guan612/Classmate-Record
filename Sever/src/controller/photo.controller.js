@@ -1,14 +1,14 @@
 const path = require('path');
 
-const {createPhotoCard} = require('../service/photo.service');
+const {createPhotoCard, getAllPhotoCard} = require('../service/photo.service');
 const {uploadFileError,unSupportedFileType,createPhotoCardError} = require("../constant/err.type");
 class PhotoController{
 
     //获取所有照片
     async show(ctx, next){
-        const {pageNum,pageSize} = ctx.request.query;
+        const {pageNum = 1,pageSize = 10} = ctx.request.query;
         try {
-            const res = await createPhotoCard(pageNum,pageSize);
+            const res = await getAllPhotoCard(pageNum,pageSize);
             ctx.body = {
                 code:0,
                 message:'获取照片列表成功',
