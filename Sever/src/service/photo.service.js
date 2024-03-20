@@ -14,8 +14,8 @@ class PhotoService{
     };
 
     //获取所有照片
-    async getPhotoCard(){
-        
+    async getPhotoCard(pageNum,pageSize){
+           
     }
 }
 
