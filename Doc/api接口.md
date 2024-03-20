@@ -27,5 +27,11 @@ url：/upload
 传递参数：file
 返回值：上传成功或失败
 
+### 图片描述
+url：/describe
+方法：POST
+传递参数：photo_name, photo_describe, photo_url, user_id
+返回值：图片描述成功或失败
+
 ### 图片删除
 url：/delete
