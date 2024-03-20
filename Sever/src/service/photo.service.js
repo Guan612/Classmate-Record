@@ -33,6 +33,15 @@ class PhotoService {
             list: rows,
         }
     }
+
+    //获取指定用户的照片
+    async getUserPhotoCard(user_id) {
+        const res = await Photo.findAll({
+            where:{user_id:user_id}
+        });
+
+        return res;
+    }
 }
 
 module.exports = new PhotoService();

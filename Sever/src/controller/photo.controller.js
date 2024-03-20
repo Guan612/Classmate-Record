@@ -1,6 +1,9 @@
 const path = require('path');
 
-const {createPhotoCard, getAllPhotoCard} = require('../service/photo.service');
+const jwt = require('jsonwebtoken')
+const { JWT_SECRET } = require('../config/config.default')
+
+const {createPhotoCard, getAllPhotoCard,getUserPhotoCard} = require('../service/photo.service');
 const {uploadFileError,unSupportedFileType,createPhotoCardError} = require("../constant/err.type");
 class PhotoController{
 
@@ -58,6 +61,51 @@ class PhotoController{
         };
     }
 
+    //查找指定用户的照片
+    async findUserPhoto(ctx,next){
+        let user_id = ctx.query.user_id;
+        //console.log(user_id)
+        try {
+            const res = await getUserPhotoCard(user_id*1);
+            if(res.length === 0){
+                ctx.body = {
+                    code:0,
+                    message:"该用户没有上传照片",
+                    result:[]
+                }
+                return;
+            } else {
+                ctx.body = {
+                    code:0,
+                    message:"查找照片成功",
+                    result:res
+                };
+            }
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+
+    //测试是否能通过token获取到用户id自动查询
+    async test(ctx,next){
+        const { authorization = '' } = ctx.request.header
+        const token = authorization.replace('Bearer ', '')
+        try {
+            // user中包含了payload的信息(id, user_name, is_admin)
+            const user = jwt.verify(token, JWT_SECRET)
+            console.log(user)
+        } catch (err) {
+            switch (err.name) {
+              case 'TokenExpiredError':
+                console.error('token已过期', err)
+                // return ctx.app.emit('error', tokenExpiredError, ctx)
+              case 'JsonWebTokenError':
+                console.error('无效的token', err)
+                // return ctx.app.emit('error', invalidToken, ctx)
+            }
+        }
+    }
 
 }
 
