@@ -16,14 +16,14 @@ class PhotoService {
     //获取所有照片
     async getAllPhotoCard(pageNum, pageSize) {
         const offset = (pageNum - 1) * pageSize
-        const { count, rows } = await Cart.findAndCountAll({
+        const { count, rows } = await Photo.findAndCountAll({
             attributes: ['id', 'number', 'selected'],
             offset: offset,
             limit: pageSize * 1,
             include: {
                 model: Photo,
                 as: 'photo_name',
-                attributes: ['id', 'goods_name', 'goods_price', 'goods_img'],
+                attributes: ['photo_name', 'photo_describe', 'photo_url'],
             },
         })
         return {
