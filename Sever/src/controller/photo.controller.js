@@ -4,6 +4,7 @@ const {createPhotoCard} = require('../service/photo.service');
 const {uploadFileError,unSupportedFileType,createPhotoCardError} = require("../constant/err.type");
 class PhotoController{
 
+    //获取所有照片
     async show(ctx, next){
         ctx.body = 'show';
     }
@@ -32,9 +33,9 @@ class PhotoController{
     //照片描述
     async describePhoto(ctx,next){
         let {photo_name,photo_describe,photo_url,user_id} = ctx.request.body;
-        console.log(photo_name,photo_describe,photo_url,user_id)
+        //console.log(photo_name,photo_describe,photo_url,user_id)
         try {
-            const res = await createPhotoCard({photo_name,photo_describe,photo_url,user_id});
+            const res = await createPhotoCard(photo_name,photo_describe,photo_url,user_id*1);
             ctx.body = {
                 code:0,
                 Message:"添加照片描述成功",
