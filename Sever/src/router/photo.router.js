@@ -7,7 +7,7 @@ const {
     findUserPhoto
 } = require('../controller/photo.controller');
 
-//const {auth} = require('../middleware/auth.middleware');
+const {auth} = require('../middleware/auth.middleware');
 
 const photoRouter = new Router();
 
@@ -19,6 +19,6 @@ photoRouter.post('/describe', describePhoto)
 
 photoRouter.get('/userphoto', findUserPhoto)
 
-photoRouter.get('/test', test)
+photoRouter.get('/test', auth, test)
 
 module.exports = photoRouter;
