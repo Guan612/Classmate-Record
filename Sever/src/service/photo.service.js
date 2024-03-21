@@ -1,7 +1,7 @@
 const Photo = require('../model/photo.model');
 class PhotoService {
 
-    //创建
+    //创建照片卡
     async createPhotoCard(photo_name, photo_describe, photo_url, user_id) {
         const res = await Photo.create({
             photo_name,
@@ -38,6 +38,15 @@ class PhotoService {
     async getUserPhotoCard(user_id) {
         const res = await Photo.findAll({
             where:{user_id:user_id}
+        });
+
+        return res;
+    }
+
+    //删除指定照片卡
+    async deletePhotoCard(deleteid) {
+        const res = await Photo.destroy({
+            where: {id:deleteid}
         });
 
         return res;

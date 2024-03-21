@@ -30,8 +30,11 @@ url：/upload
 ### 图片描述
 url：/describe
 方法：POST
-传递参数：photo_name, photo_describe, photo_url, user_id
+传递参数：photo_name, photo_describe, photo_url, user_id(通过token自动获取)
 返回值：图片描述成功或失败
 
 ### 图片删除
-url：/delete
+url：/delete/:id
+方法：DELETE
+传递参数：url_id
+返回值：图片删除成功或失败
