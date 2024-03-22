@@ -1,7 +1,7 @@
 <script setup>
 import { NInput, NButton } from 'naive-ui';
 import { ref } from 'vue';
-import {login} from '../api/'
+import {login} from '@/api/user'
 let imgSrc = ref('https://upload.wikimedia.org/wikipedia/commons/1/1a/Dolby_logo_2019.svg')
 let user_name = ref('');
 let password = ref('');
