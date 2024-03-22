@@ -1,7 +1,16 @@
 <script setup>
-    import headerBar from '@/components/headerBar.vue';
-    import potoCard from '@/components/potoCard.vue';
-    import sideBar from '@/components/sideBar.vue';
+import headerBar from '@/components/headerBar.vue';
+import potoCard from '@/components/potoCard.vue';
+import { ref, onMounted} from 'vue';
+
+import { getPhoto } from "@/api/photo"
+
+const photoList = ref([]);
+const getPhotoList = async () => {
+    const res = await getPhoto();
+    photoList.value = res.data;
+}
+onMounted(() => getPhotoList());
 </script>
 
 <template>
@@ -9,7 +18,7 @@
         <headerBar></headerBar>
         <div class="">
             <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4">
-                <div v-for="card in 10" class="flex flex-row m-2">
+                <div v-for="card in photoList" :key="card.id" class="flex flex-row m-2">
                     <potoCard></potoCard>
                 </div>
             </div>
@@ -17,7 +26,4 @@
     </div>
 </template>
 
-<style>
-
-</style>
-
+<style></style>
