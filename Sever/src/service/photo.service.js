@@ -17,14 +17,8 @@ class PhotoService {
     async getAllPhotoCard(pageNum, pageSize) {
         const offset = (pageNum - 1) * pageSize
         const { count, rows } = await Photo.findAndCountAll({
-            attributes: ['id', 'number', 'selected'],
             offset: offset,
             limit: pageSize * 1,
-            include: {
-                model: Photo,
-                as: 'photo_name',
-                attributes: ['photo_name', 'photo_describe', 'photo_url'],
-            },
         })
         return {
             pageNum,
