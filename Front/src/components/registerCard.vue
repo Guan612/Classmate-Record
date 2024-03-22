@@ -1,7 +1,7 @@
 <script setup>
 import { NInput, NButton, NTooltip } from 'naive-ui';
 import { ref } from 'vue';
-import {register} from '../api/'
+import {register} from '@/api/user'
 import router from '@/router';
 let imgSrc = ref('https://upload.wikimedia.org/wikipedia/commons/1/1a/Dolby_logo_2019.svg');
 let user_name = ref('');
