@@ -19,7 +19,7 @@ onMounted(() => getPhotoList());
         <div class="">
             <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5 gap-4">
                 <div v-for="card in photoList" :key="card.id" class="flex flex-row m-2">
-                    <potoCard></potoCard>
+                    <potoCard :cardText="card.photo_describe" :title="card.photo_name"></potoCard>
                 </div>
             </div>
         </div>
