@@ -8,7 +8,7 @@ import { getPhoto } from "@/api/photo"
 const photoList = ref([]);
 const getPhotoList = async () => {
     const res = await getPhoto();
-    photoList.value = res.data;
+    photoList.value = res.data.result.list;
 }
 onMounted(() => getPhotoList());
 </script>
