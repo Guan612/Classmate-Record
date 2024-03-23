@@ -2,14 +2,12 @@
 import { onMounted, ref } from 'vue';
 import { NCard, NEllipsis } from 'naive-ui';
 
-let cardText = ref("测试文字chsaihfcajksdc hakccc hnsauikc hdsa");
-let title = ref("测试标题");
 let imgSrc = ref("https://media.themoviedb.org/t/p/w220_and_h330_face/6QRJcTEQWRQIa43cgcS9DXXa60W.jpg");
 
 const props = defineProps({
     cardText: String,
     title: String,
-    imgSrc: String,
+    //imgSrc: String,
 })
 
 </script>
