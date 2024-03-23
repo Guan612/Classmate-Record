@@ -16,13 +16,13 @@ let headImg = ref('https://shef.cc/wp-content/uploads/Mitsushi_MtF_Flag.png')
         <div class="w-full p-4 navbar flex flex-grow justify-between">
             <div class="flex">
                 <div class="flex mr-5 ml-5">
-                    <img :src="logoImg" class="w-20 " alt="">
+                    <img :src="logoImg" class="w-20 hover:scale-110 transform transition-transform duration-300" alt="">
                 </div>
                 <div class="flex mr-1 ml-1">
-                    <n-button strong secondary round @click="search">主页</n-button>
+                    <n-button strong secondary round @click="search" class="hover:scale-110 transform transition-transform duration-300">主页</n-button>
                 </div>
                 <div class="flex mr-1 ml-1">
-                    <n-button strong secondary round @click="search">添加</n-button>
+                    <n-button strong secondary round @click="search" class="hover:scale-110 transform transition-transform duration-300">添加</n-button>
                 </div>
                 <div class="flex mr-0 ml-3">
                     <n-input round placeholder="搜索">
