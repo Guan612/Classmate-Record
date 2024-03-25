@@ -1,9 +1,11 @@
 <script setup>
     import detailCard from "@/components/detailsCard.vue"
+    import headerCard from "@/components/headerBar.vue"
 </script>
 
 <template>
-<detailCard></detailCard>
+    <headerCard></headerCard>
+    <detailCard></detailCard>
 </template>
 
 <style scoped>
