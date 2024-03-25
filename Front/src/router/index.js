@@ -25,6 +25,11 @@ const router = createRouter({
       path:"/detail",
       name:"detail",
       component:()=>import("@/views/detailPage.vue"),
+    },
+    {
+      path:"/my",
+      name:"my",
+      component:()=>import("@/views/myPage.vue"),
     }
     
   ]
