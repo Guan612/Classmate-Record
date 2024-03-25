@@ -23,10 +23,13 @@ import { NInput, NButton, NUpload } from 'naive-ui';
                 </n-upload>
             </div>
             <div>
-                输入标题
+                <n-input type="text" size="large" placeholder="大" />
             </div>
             <div>
-                输入描述
+                <n-input v-model:value="value" type="textarea" placeholder="基本的 Textarea" />
+            </div>
+            <div>
+                <n-button type="primary" size="large">上传</n-button>
             </div>
         </div>
     </div>
