@@ -30,6 +30,11 @@ const router = createRouter({
       path:"/my",
       name:"my",
       component:()=>import("@/views/myPage.vue"),
+    },
+    {
+      path:"/upload",
+      name:"upload",
+      component:()=>import("@/views/uploadPage.vue"),
     }
     
   ]
