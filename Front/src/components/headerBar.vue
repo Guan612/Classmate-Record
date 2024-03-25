@@ -24,7 +24,9 @@ let headImg = ref('https://shef.cc/wp-content/uploads/Mitsushi_MtF_Flag.png')
                     </router-link>
                 </div>
                 <div class="flex mr-1 ml-1">
-                    <n-button strong secondary round @click="search" class="hover:scale-110 transform transition-transform duration-300">添加</n-button>
+                    <router-link to="/upload">
+                        <n-button strong secondary round @click="search" class="hover:scale-110 transform transition-transform duration-300">添加</n-button>
+                    </router-link>
                 </div>
                 <div class="flex mr-0 ml-3">
                     <n-input round placeholder="搜索">
