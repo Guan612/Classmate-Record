@@ -19,7 +19,9 @@ let headImg = ref('https://shef.cc/wp-content/uploads/Mitsushi_MtF_Flag.png')
                     <img :src="logoImg" class="w-20 hover:scale-110 transform transition-transform duration-300" alt="">
                 </div>
                 <div class="flex mr-1 ml-1">
-                    <n-button strong secondary round @click="search" class="hover:scale-110 transform transition-transform duration-300">主页</n-button>
+                    <router-link to="/">
+                        <n-button strong secondary round @click="search" class="hover:scale-110 transform transition-transform duration-300">主页</n-button>
+                    </router-link>
                 </div>
                 <div class="flex mr-1 ml-1">
                     <n-button strong secondary round @click="search" class="hover:scale-110 transform transition-transform duration-300">添加</n-button>
@@ -36,7 +38,9 @@ let headImg = ref('https://shef.cc/wp-content/uploads/Mitsushi_MtF_Flag.png')
                 </div>
             </div>
             <div class="flex flex-end mr-6">
-                <n-avatar round size="large" class="p-1" :src="headImg" />
+                <router-link to="/my">
+                    <n-avatar round size="large" class="p-1" :src="headImg" />
+                </router-link>
             </div>
         </div>
     </div>
