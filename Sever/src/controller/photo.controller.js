@@ -51,8 +51,7 @@ class PhotoController {
     //照片描述
     async describePhoto(ctx, next) {
         let { photo_name, photo_describe, photo_url } = ctx.request.body;
-        const user = await tokeninfo(ctx);
-        const user_id = user.id
+        const user_id = ctx.state.user.id;
         //console.log(photo_name,photo_describe,photo_url,user_id)
         try {
             const res = await createPhotoCard(photo_name, photo_describe, photo_url, user_id * 1);
@@ -69,8 +68,7 @@ class PhotoController {
 
     //查找指定用户的照片
     async findUserPhoto(ctx, next) {
-        const user = await tokeninfo(ctx);
-        const user_id = user.id
+        const user_id = ctx.state.user.id;
         try {
             const res = await getUserPhotoCard(user_id * 1);
             if (res.length === 0) {
