@@ -3,7 +3,7 @@ const Koa  = require('koa');
 const cros = require('@koa/cors');
 const router = require('../router');
 const {koaBody} = require('koa-body');
-const KoaStatic = require('koa-static')
+const static = require('koa-static')
 const parameter = require('koa-parameter');
 const errHandler = require('./errHandler')
 
@@ -22,11 +22,12 @@ app.use(
     })
 )
 
-app.use(KoaStatic(path.join(__dirname, '../uploads')));
+app.use(static(path.join( __dirname,'./uploads/')));
+//console.log(path.join( __dirname,'../uploads/'))
 
 app.use(cros());
 app.use(parameter(app));
-// app.use(koaBody());
+
 
 app.use(router.routes());
 app.on('error', errHandler);

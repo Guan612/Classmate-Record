@@ -1,9 +1,10 @@
 const path = require('path');
-const { 
-    createPhotoCard, 
-    getAllPhotoCard, 
-    getUserPhotoCard, 
-    deletePhotoCard 
+const send = require('koa-send');
+const {
+    createPhotoCard,
+    getAllPhotoCard,
+    getUserPhotoCard,
+    deletePhotoCard
 } = require('../service/photo.service');
 const { uploadFileError, unSupportedFileType, createPhotoCardError } = require("../constant/err.type");
 
@@ -29,18 +30,23 @@ class PhotoController {
 
     //照片上传api
     async upload(ctx, next) {
-        // console.log(ctx.request.files.file.path)
+        //console.log(ctx.request.files.file)
         const { file, path } = ctx.request.files;
+        let fileSize = file.size / 1024 / 1024;
+        fileSize = fileSize.toFixed(2);
+
         const fileTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp']
         if (file) {
-            if (!fileTypes.includes(file.type)) {
+            if (!fileTypes.includes(file.mimetype)) {
                 return ctx.app.emit('error', unSupportedFileType, ctx);
             }
             ctx.body = {
                 code: 0,
                 Message: '图片上传成功',
                 result: {
-                    goods_img: path.basename(file.path)
+                    photo_path: file.filepath,
+                    photo_name: file.newFilename,
+                    photo_size: fileSize + "MB",
                 }
             }
         } else {
@@ -96,26 +102,29 @@ class PhotoController {
         // console.log(deleteid);
         let res = await deletePhotoCard(deleteid * 1);
         //console.log(res);
-        if(res){
+        if (res) {
             ctx.body = {
                 code: 0,
-                message:'删除成功',
-                result:""
+                message: '删除成功',
+                result: ""
             }
         } else {
             ctx.body = {
                 code: 0,
-                message:'删除失败',
-                result:""
+                message: '删除失败',
+                result: ""
             }
         }
-        
+
     }
 
 
     //测试是否能通过token获取到用户id自动查询
     async test(ctx, next) {
-        ctx.body = "测试成功";
+        await send(ctx,ctx.query.path,{
+            root: path.resolve(__dirname, '../uploads')
+        })
+        //ctx.body = "测试成功";
     }
 
 }
