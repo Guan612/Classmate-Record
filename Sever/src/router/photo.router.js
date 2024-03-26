@@ -9,6 +9,7 @@ const {
 } = require('../controller/photo.controller');
 
 const {auth} = require('../middleware/auth.middleware');
+const {validator} = require('../middleware/photo.middleware');
 
 const photoRouter = new Router();
 
@@ -16,17 +17,26 @@ const photoRouter = new Router();
 photoRouter.get('/', show)
 
 //上传照片
-photoRouter.post('/upload', auth, upload)
+photoRouter.post('/file', auth, upload)
 
 //编辑照片卡
-photoRouter.post('/describe', auth, describePhoto)
+photoRouter.post('/', auth, validator({
+    photo_name: 'string',
+    photo_describe: 'string',
+    photo_url: 'string',
+}),describePhoto)
 
 //查找用户上传的照片
 photoRouter.get('/userphoto', auth, findUserPhoto)
 
 //删除用户照片
-photoRouter.delete('/delete/:id', auth, deleteUserPhoto)
+photoRouter.delete('/:id', auth, deleteUserPhoto)
 
-photoRouter.get('/test', auth, test)
+
+photoRouter.get('/test', auth, validator({
+    photo_name: 'string',
+    photo_describe: 'string',
+    photo_url: 'string',
+}),test)
 
 module.exports = photoRouter;
