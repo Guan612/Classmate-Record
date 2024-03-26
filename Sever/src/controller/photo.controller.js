@@ -1,5 +1,5 @@
 const path = require('path');
-const send = require('koa-send');
+
 const {
     createPhotoCard,
     getAllPhotoCard,
@@ -121,10 +121,7 @@ class PhotoController {
 
     //测试是否能通过token获取到用户id自动查询
     async test(ctx, next) {
-        await send(ctx,ctx.query.path,{
-            root: path.resolve(__dirname, '../uploads')
-        })
-        //ctx.body = "测试成功";
+        ctx.body = "测试成功";
     }
 
 }

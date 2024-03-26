@@ -22,7 +22,7 @@ app.use(
     })
 )
 
-app.use(static(path.join( __dirname,'./uploads/')));
+app.use(static(path.join( __dirname,'../uploads/')));
 //console.log(path.join( __dirname,'../uploads/'))
 
 app.use(cros());
