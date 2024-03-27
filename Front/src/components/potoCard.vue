@@ -7,11 +7,11 @@ let cardUrl = ref("/detail");
 const props = defineProps({
     cardText: String,
     title: String,
-    //cardUrl: Number,
+    cardId: Number,
     imgSrc: String,
 })
 onMounted(() => {
-    console.log(props.imgSrc);
+    //console.log(props.imgSrc);
 })
 </script>
 
@@ -25,7 +25,7 @@ onMounted(() => {
             {{ cardText }}
         </n-ellipsis>
         <div>
-            <RouterLink :to="cardUrl">详情</RouterLink>
+            <RouterLink :to="`${cardUrl}/${cardId}`">详情</RouterLink>
         </div>
        
     </n-card>
