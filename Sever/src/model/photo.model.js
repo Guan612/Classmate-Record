@@ -1,6 +1,7 @@
 const { DataTypes } = require('sequelize')
 
 const seq = require('../db/seq')
+const User = require('./user.model')
 
 const Photo = seq.define('classmeet_photo', {
     photo_name:{
@@ -30,6 +31,10 @@ const Photo = seq.define('classmeet_photo', {
     }
 
 },{paranoid: true});
+
+Photo.belongsTo(User, {
+    foreignKey: 'user_id',
+})
 
 //Photo.sync({ force: true })
 

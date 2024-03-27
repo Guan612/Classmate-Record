@@ -4,7 +4,8 @@ const {
     createPhotoCard,
     getAllPhotoCard,
     getUserPhotoCard,
-    deletePhotoCard
+    deletePhotoCard,
+    getDetailCard,
 } = require('../service/photo.service');
 const { uploadFileError, unSupportedFileType, createPhotoCardError } = require("../constant/err.type");
 
@@ -25,7 +26,6 @@ class PhotoController {
         } catch (err) {
             console.error(err);
         }
-
     }
 
     //照片上传api
@@ -54,7 +54,7 @@ class PhotoController {
         }
     }
 
-    //照片描述
+    //添加照片描述
     async describePhoto(ctx, next) {
         let { photo_name, photo_describe, photo_url } = ctx.request.body;
         const user_id = ctx.state.user.id;
@@ -72,7 +72,18 @@ class PhotoController {
         };
     }
 
-    //查找指定用户的照片
+    //照片详情
+    async photoDetail(ctx, next) {
+        const photo_id = ctx.params.id;
+        const res = await getDetailCard(photo_id);
+        ctx.body = {
+            code: 0,
+            message: "获取照片详情成功",
+            result: res
+        }
+    }
+
+    //查找指定用户的所有照片
     async findUserPhoto(ctx, next) {
         const user_id = ctx.state.user.id;
         try {

@@ -4,6 +4,7 @@ const {
     show,
     upload,
     describePhoto,
+    photoDetail,
     findUserPhoto,
     deleteUserPhoto,
 } = require('../controller/photo.controller');
@@ -26,9 +27,11 @@ photoRouter.post('/', auth, validator({
     photo_url: 'string',
 }),describePhoto)
 
+photoRouter.get('/detail/:id', auth, photoDetail)
+
 //查找用户上传的照片
 photoRouter.get('/userphoto', auth, findUserPhoto)
-
+ 
 //删除用户照片
 photoRouter.delete('/:id', auth, deleteUserPhoto)
 

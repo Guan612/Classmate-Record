@@ -1,4 +1,5 @@
 const Photo = require('../model/photo.model');
+const User = require('../model/user.model');
 class PhotoService {
 
     //创建照片卡
@@ -26,6 +27,20 @@ class PhotoService {
             total: count,
             list: rows,
         }
+    }
+
+    //获取详情
+    async getDetailCard(id) {
+        const res = await Photo.findOne({
+            where: {id:id},
+            attributes: ['id', 'photo_name', 'photo_describe', 'photo_url'],
+            include:{
+                model:User,
+                attributes:['user_name'],
+            }
+        })
+
+        return res;
     }
 
     //获取指定用户的照片
