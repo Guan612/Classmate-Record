@@ -6,7 +6,6 @@ import headerCard from "@/components/headerBar.vue"
 import { getPhotoDetail } from "@/api/photo"
 
 let result = ref({})
-let userName = ref("")
 const route = useRoute();
 
 // 获取路由参数
@@ -25,7 +24,7 @@ onMounted(async () => {
 
 <template>
     <headerCard></headerCard>
-    <detailCard :cardText="result.photo_describe" :title="result.photo_name"></detailCard>
+    <detailCard :cardText="result.photo_describe" :title="result.photo_name" :userName="result.user_name"></detailCard>
 </template>
 
 <style scoped></style>
