@@ -1,17 +1,18 @@
 <script setup>
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, toRefs} from 'vue';
 import { NCard, NEllipsis } from 'naive-ui';
 
-let imgSrc = ref("https://media.themoviedb.org/t/p/w220_and_h330_face/6QRJcTEQWRQIa43cgcS9DXXa60W.jpg");
+//let imgSrc = ref("https://media.themoviedb.org/t/p/w220_and_h330_face/6QRJcTEQWRQIa43cgcS9DXXa60W.jpg");
 let cardUrl = ref("/detail");
-
 const props = defineProps({
     cardText: String,
     title: String,
-    //cardUrl: String,
-    //imgSrc: String,
+    //cardUrl: Number,
+    imgSrc: String,
 })
-
+onMounted(() => {
+    console.log(props.imgSrc);
+})
 </script>
 
 <template>
