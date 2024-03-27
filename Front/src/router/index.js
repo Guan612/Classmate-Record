@@ -22,7 +22,7 @@ const router = createRouter({
       meta:{title:'注册'},
     },
     {
-      path:"/detail",
+      path:"/detail/:id",
       name:"detail",
       component:()=>import("@/views/detailPage.vue"),
     },
