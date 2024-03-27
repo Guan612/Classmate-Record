@@ -23,7 +23,7 @@ onMounted(() => getPhotoList());
                     :cardText="card.photo_describe" 
                     :title="card.photo_name" 
                     :imgSrc="card.photo_url"
-                    :cardUrl="card.id"></potoCard>
+                    :cardId="card.id"></potoCard>
                 </div>
             </div>
         </div>
