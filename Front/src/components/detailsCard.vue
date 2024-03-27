@@ -2,9 +2,16 @@
 import { ref } from 'vue';
 import { NButton, NSpace, NAvatar, NCarousel } from 'naive-ui';
 
-let userName = ref("小明");
-let photoTitle = ref("照片标题");
-let photoContent = ref("照片内容");
+// let userName = ref("小明");
+// let photoTitle = ref("照片标题");
+// let photoContent = ref("照片内容");
+const props = defineProps({
+    userName: String,
+    cardText: String,
+    title: String,
+    imgSrc: String,
+})
+
 </script>
 
 <template>
@@ -35,10 +42,10 @@ let photoContent = ref("照片内容");
             </div>
             <div class="flex flex-col">
                 <div class="flex text-2xl font-bold">
-                    {{photoTitle}}
+                    {{title}}
                 </div>
                 <div class="flex text-lg">
-                    {{photoContent}}
+                    {{cardText}}
                 </div>
             </div>
             <div class="flex">
