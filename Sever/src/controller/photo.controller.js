@@ -1,4 +1,5 @@
 const path = require('path');
+const {APP_PORT,SEVER_URL} = require('../config/config.default');
 
 const {
     createPhotoCard,
@@ -58,6 +59,7 @@ class PhotoController {
     async describePhoto(ctx, next) {
         let { photo_name, photo_describe, photo_url } = ctx.request.body;
         const user_id = ctx.state.user.id;
+        photo_url = SEVER_URL+":"+APP_PORT+"/img/"+photo_url;
         //console.log(photo_name,photo_describe,photo_url,user_id)
         try {
             const res = await createPhotoCard(photo_name, photo_describe, photo_url, user_id * 1);
