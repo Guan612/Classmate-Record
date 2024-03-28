@@ -1,5 +1,5 @@
 <script setup>
-
+import {NButton} from "naive-ui"
 </script>
 
 <template>
@@ -7,15 +7,18 @@
         <div class="card flex flex-col">
             <div class="flex flex-row">
                 <div class="">
-                    头像
+                    <img src="" alt="">
                 </div>
                 <div class="">
                     用户名
+                    {{user_name}}
                 </div>
             </div>
             <div class="">
                 <div class="">
-                    上传管理
+                    <RouterLink to="">
+                        上传管理
+                    </RouterLink>
                 </div>
                 <div class="">
                     账号管理
