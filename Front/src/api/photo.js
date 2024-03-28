@@ -16,7 +16,7 @@ export const uploadPhotoFile = (file) => {
 }
 
 //上传照片描述api
-export const uploadPhoto = async (photo_name, photo_describe, photo_url) => {
+export const uploadPhotoDes = async (photo_name, photo_describe, photo_url) => {
     try {
         const res = await requrl.post('/photo/', {
             "photo_name": photo_name,
