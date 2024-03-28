@@ -1,5 +1,13 @@
 <script setup>
 import { NInput, NButton, NUpload } from 'naive-ui';
+import { ref } from 'vue';
+
+//必须先上传图片返回名字后再进行其他操作
+const flag = ref(true);
+const photoName = ref('');
+const photoDescribe = ref('');
+const photoUrl = ref('');
+
 </script>
 
 <template>
@@ -23,13 +31,15 @@ import { NInput, NButton, NUpload } from 'naive-ui';
                 </n-upload>
             </div>
             <div class="flex">
-                <n-input type="text" size="large" placeholder="请输入标题喵" />
+                <n-input type="text" size="large" v-model:value="photoName" placeholder="请输入标题喵" />
             </div>
             <div class="flex">
-                <n-input v-model:value="value" type="textarea" placeholder="请输入描述喵" />
+                <n-input v-model:value="photoDescribe" type="textarea" placeholder="请输入描述喵" />
             </div>
             <div class="flex">
-                <n-button type="primary" size="large" class="">上传喵~</n-button>
+                <n-button type="primary" size="large" class="" @click="">上传喵~</n-button>
+                <n-button type="warning" size="large" class="">保存喵~</n-button>
+                <n-button type="success" size="large" class="" @click="">发布喵~</n-button>
                 <n-button type="error" size="large">取消喵~</n-button>
             </div>
         </div>
