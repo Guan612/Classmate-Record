@@ -10,8 +10,6 @@ const {
 } = require('../service/photo.service');
 const { uploadFileError, unSupportedFileType, createPhotoCardError } = require("../constant/err.type");
 
-const { tokeninfo } = require("../middleware/tokenInfo.middleware")
-
 class PhotoController {
 
     //首页获取所有照片
