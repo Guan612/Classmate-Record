@@ -1,5 +1,6 @@
 const Photo = require('../model/photo.model');
 const User = require('../model/user.model');
+const prisma = require('../db/prisma');
 class PhotoService {
 
     //创建照片卡

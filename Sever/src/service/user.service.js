@@ -1,11 +1,17 @@
 const User = require('../model/user.model')
+const prisma = require('../db/prisma');
 class UserService {
     async createUser(user_name, password) {
         // 插入数据
         // await表达式: promise对象的值
-        const res = await User.create({ user_name, password })
+        const res = await prisma.classmeet_users.create({
+            data: {
+                user_name: user_name,
+                password: password,
+            }
+        })
         // console.log(res)
-        return res.dataValues
+        return res
     };
     async getUerInfo({ id, user_name, password, is_admin }) {
         const whereOpt = {}

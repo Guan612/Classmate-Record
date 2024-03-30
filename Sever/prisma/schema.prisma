@@ -15,7 +15,7 @@ model classmeet_photos {
   user_id        Int
   photo_describe String?   @db.Text
   photo_url      String    @db.VarChar(255)
-  createdAt      DateTime  @db.DateTime(0)
+  createdAt      DateTime  @default(now())
   updatedAt      DateTime  @db.DateTime(0)
   deletedAt      DateTime? @db.DateTime(0)
 }
@@ -26,6 +26,6 @@ model classmeet_users {
   user_name String   @unique(map: "user_name") @db.VarChar(255)
   password  String   @db.Char(64)
   is_admin  Boolean  @default(false)
-  createdAt DateTime @db.DateTime(0)
+  createdAt DateTime @default(now())
   updatedAt DateTime @db.DateTime(0)
 }
