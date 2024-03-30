@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model classmeet_photos {
+  id             Int       @id @default(autoincrement())
+  photo_name     String    @db.VarChar(255)
+  photo_shootime DateTime? @db.DateTime(0)
+  user_id        Int
+  photo_describe String?   @db.Text
+  photo_url      String    @db.VarChar(255)
+  createdAt      DateTime  @db.DateTime(0)
+  updatedAt      DateTime  @db.DateTime(0)
+  deletedAt      DateTime? @db.DateTime(0)
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model classmeet_users {
+  id        Int      @id @default(autoincrement())
+  user_name String   @unique(map: "user_name") @db.VarChar(255)
+  password  String   @db.Char(64)
+  is_admin  Boolean  @default(false)
+  createdAt DateTime @db.DateTime(0)
+  updatedAt DateTime @db.DateTime(0)
+}
