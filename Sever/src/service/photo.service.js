@@ -53,20 +53,26 @@ class PhotoService {
         return result;
     }
 
-    //获取指定用户的照片
+    //获取指定用户的照片(已更新为prisma)
     async getUserPhotoCard(user_id) {
-        const res = await Photo.findAll({
-            where: { user_id: user_id }
-        });
+        // const res = await Photo.findAll({
+        //     where: { user_id: user_id }
+        // });
+        const res = await prisma.classmeet_photos.findMany({
+            where: { user_id: user_id },
+        })
 
         return res;
     }
 
-    //删除指定照片卡
+    //删除指定照片卡(更新为prisma)
     async deletePhotoCard(deleteid) {
-        const res = await Photo.destroy({
-            where: { id: deleteid }
-        });
+        // const res = await Photo.destroy({
+        //     where: { id: deleteid }
+        // });
+        const res = await prisma.classmeet_photos.delete({
+            where: { id: deleteid },
+        })
 
         return res;
     }
