@@ -15,18 +15,34 @@ class PhotoService {
         return res.dataValues;
     };
 
-    //获取所有照片
+    //获取所有照片(已经更新为prisma)
     async getAllPhotoCard(pageNum, pageSize) {
         const offset = (pageNum - 1) * pageSize
-        const { count, rows } = await Photo.findAndCountAll({
-            offset: offset,
-            limit: pageSize * 1,
+        // const { count, rows } = await Photo.findAndCountAll({
+        //     offset: offset,
+        //     limit: pageSize * 1,
+        // })
+        // return {
+        //     pageNum,
+        //     pageSize,
+        //     total: count,
+        //     list: rows,
+        // }
+        const res = await prisma.classmeet_photos.findMany({
+            skip: offset,
+            take: pageSize*1,
+            select:{
+                id: true,
+                photo_name: true,
+                photo_describe: true,
+                photo_url: true,
+            }
         })
         return {
             pageNum,
             pageSize,
-            total: count,
-            list: rows,
+            total: res.length,
+            list: res,
         }
     }
 
@@ -40,6 +56,16 @@ class PhotoService {
                 attributes: ['user_name'],
             }
         })
+        // const res = await prisma.classmeet_photos.findUnique({
+        //     where: { id: id },
+        //     include: {
+        //         classmeet_users: {
+        //             select: {
+        //                 user_name: true,
+        //             }
+        //         }
+        //     }
+        // })
 
         //手动整理res数据
         const result = {
