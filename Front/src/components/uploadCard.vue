@@ -21,7 +21,7 @@ const uploadPhotof = async (file) => {
     const res = await uploadPhotoFile(file)
     console.log(res)
     if(res){
-        photoUrl =  res.result.photo_name
+        photoUrl.value =  res.result.photo_name
     }
 }
 
