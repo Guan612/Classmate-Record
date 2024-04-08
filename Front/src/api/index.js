@@ -1,5 +1,4 @@
 import axios from 'axios';
-import qs from 'qs';
 
 const requrl =  axios.create({
     //基本url
