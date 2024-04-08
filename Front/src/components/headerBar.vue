@@ -2,6 +2,7 @@
 import { ref } from 'vue';
 import { NAnchor, NTabs, NInput, NButton, NAvatar } from 'naive-ui';
 import {useUserStore} from  '@/stores/userStore.js';
+import router from '@/router';
 
 const userStore =  useUserStore();
 //绑定placeholder渲染
@@ -48,6 +49,7 @@ let headImg = ref('https://shef.cc/wp-content/uploads/Mitsushi_MtF_Flag.png')
                 <router-link to="/my">
                   <n-avatar round size="large" class="p-1" :src="headImg" />
                 </router-link>
+                <div>欢迎你{{userStore.userData.user_name}}</div>
               </div>
               <div v-else>
                 <router-link to="/login">还没登录哦</router-link>

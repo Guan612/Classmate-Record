@@ -4,8 +4,10 @@ import { ref } from 'vue';
 import {register} from '@/api/user'
 import router from '@/router';
 let imgSrc = ref('https://upload.wikimedia.org/wikipedia/commons/1/1a/Dolby_logo_2019.svg');
+
 let user_name = ref('');
 let password = ref('');
+const userInfo = {}
 
 const handleRegister = async ()=>{
     await register(user_name.value, password.value);
@@ -50,4 +52,4 @@ const handleRegister = async ()=>{
 .card {
     background: linear-gradient(to right, #5BCEFA, #F5A9B8)
 }
-</style>../api/index.js
+</style>

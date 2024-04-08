@@ -35,6 +35,7 @@ class UserController{
                 code: 0,
                 message: '用户登录成功',
                 result: {
+                    user_name,
                     token: jwt.sign(res, JWT_SECRET, {expiresIn: '100d'}),
                 },
             }

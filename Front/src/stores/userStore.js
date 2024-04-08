@@ -6,10 +6,12 @@ import {ref} from "vue";
 export const useUserStore = defineStore(
     'user',
     ()=>{
-        const userToken = ref('')
+        const userToken = ref('');
+        const userData = ref({});
         const handleLogin = async (userInfo) => {
             const {result} = await login(userInfo)
-            console.log(result)
+            userData.value = result
+            //console.log(result)
             userToken.value = result.token
             //console.log(userToken.value)
             router.push('/')
@@ -20,7 +22,7 @@ export const useUserStore = defineStore(
             userToken.value = ''
         }
 
-        return {userToken,handleLogin,clearUserInfo}
+        return {userToken,userData,handleLogin,clearUserInfo}
     },
     {
         persist: true
