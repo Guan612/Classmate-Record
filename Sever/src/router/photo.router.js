@@ -28,7 +28,7 @@ photoRouter.post('/', auth, validator({
 }),describePhoto)
 
 //照片详情
-photoRouter.get('/detail/:id',photoDetail)
+photoRouter.get('/detail/:id',auth,photoDetail)
 
 //查找用户上传的照片
 photoRouter.get('/userphoto', auth, findUserPhoto)
