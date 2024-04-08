@@ -1,16 +1,17 @@
 <script setup>
 import { NInput, NButton } from 'naive-ui';
 import { ref } from 'vue';
-import {login} from '@/api/user'
+import {useUserStore} from '@/stores/userStore'
 let imgSrc = ref('https://upload.wikimedia.org/wikipedia/commons/1/1a/Dolby_logo_2019.svg')
-let user_name = ref('');
-let password = ref('');
 
-let handleLogin = () => {
-    login(user_name.value, password.value).then(res => {
-        console.log(res)
-    })
-}
+const userStore = useUserStore()
+const user_name = ref('xiaomin');
+const password = ref('123456');
+
+const userInfo = ref({
+	user_name,
+	password
+})
 </script>
 
 <template>
@@ -38,7 +39,7 @@ let handleLogin = () => {
 			</div>
 			<div class="flex flex-col justify-center">
 				<div class="flex justify-center mb-3">
-					<n-button type="info" class="text-black" @click="handleLogin">登录</n-button>
+					<n-button type="info" class="text-black" @click="userStore.handleLogin(userInfo)">登录</n-button>
 				</div>
 				<div class="flex justify-center">
 					<router-link to="/register">

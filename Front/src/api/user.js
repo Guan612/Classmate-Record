@@ -14,14 +14,11 @@ export const register = async (user_name, password) => {
 }
 
 //登录api
-export const login = async (user_name, password) => {
+export const login = async (userInfo) => {
     try {
-        const res = await requrl.post('/users/login', {
-            "user_name": user_name,
-            "password": password
-        });
-
-        return(res.data.result);
+        userInfo;
+        const res = await requrl.post('/users/login', userInfo);
+        return(res.data);
     } catch (error) {
         console.error(error);
     }
