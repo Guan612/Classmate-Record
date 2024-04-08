@@ -1,6 +1,9 @@
 <script setup>
 import { ref } from 'vue';
 import { NAnchor, NTabs, NInput, NButton, NAvatar } from 'naive-ui';
+import {useUserStore} from  '@/stores/userStore.js';
+
+const userStore =  useUserStore();
 //绑定placeholder渲染
 let placeholder = ref('123333');
 let search = () => {
@@ -40,9 +43,16 @@ let headImg = ref('https://shef.cc/wp-content/uploads/Mitsushi_MtF_Flag.png')
                 </div>
             </div>
             <div class="flex flex-end mr-6">
+            <!--根据是否登录渲染-->
+              <div v-if="userStore.userToken">
                 <router-link to="/my">
-                    <n-avatar round size="large" class="p-1" :src="headImg" />
+                  <n-avatar round size="large" class="p-1" :src="headImg" />
                 </router-link>
+              </div>
+              <div v-else>
+                <router-link to="/login">还没登录哦</router-link>
+              </div>
+
             </div>
         </div>
     </div>

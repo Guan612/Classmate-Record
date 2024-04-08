@@ -1,6 +1,7 @@
 <script setup>
 import { uploadPhotoFile,uploadPhotoDes } from '@/api/photo';
 import { NInput, NButton, NUpload, unstableCollapseTransitionRtl } from 'naive-ui';
+import router from "@/router";
 import { ref } from 'vue';
 
 //必须先上传图片返回名字后再进行其他操作
@@ -10,6 +11,12 @@ const photoName = ref('');
 const photoDescribe = ref('');
 const photoUrl = ref('');
 
+const photoInfo = {
+  photoName,
+  photoDescribe,
+  photoUrl
+}
+
 const uploadPhotof = async (file) => {
     const res = await uploadPhotoFile(file)
     console.log(res)
@@ -18,8 +25,13 @@ const uploadPhotof = async (file) => {
     }
 }
 
-const uploadPhotoDescribe = async (file) => {
-    const res = await uploadPhotoDes(file)
+const uploadPhotoDescribe = async (photoInfo) => {
+    const res = await uploadPhotoDes(photoInfo)
+}
+
+//返回主页函数
+const backIndex = ()=>{
+  router.push('/')
 }
 </script>
 
@@ -53,7 +65,7 @@ const uploadPhotoDescribe = async (file) => {
                 <n-button type="primary" size="large" class="" @click="uploadPhotof">上传喵~</n-button>
                 <n-button type="warning" size="large" class="">保存喵~</n-button>
                 <n-button type="success" size="large" class="" @click="uploadPhotoDescribe" v-bind:disabled="flag">发布喵~</n-button>
-                <n-button type="error" size="large">取消喵~</n-button>
+                <n-button type="error" size="large" @click="backIndex">取消喵~</n-button>
             </div>
         </div>
     </div>

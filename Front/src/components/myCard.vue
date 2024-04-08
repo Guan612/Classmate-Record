@@ -1,5 +1,8 @@
 <script setup>
 import {NButton} from "naive-ui"
+import {useUserStore} from '@/stores/userStore.js';
+
+const userStore = useUserStore();
 </script>
 
 <template>
@@ -22,6 +25,9 @@ import {NButton} from "naive-ui"
                 </div>
                 <div class="">
                     账号管理
+                </div>
+                <div>
+                  <n-button @click="userStore.clearUserInfo">退出登录</n-button>
                 </div>
             </div>
         </div>

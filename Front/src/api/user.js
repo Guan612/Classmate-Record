@@ -16,7 +16,6 @@ export const register = async (user_name, password) => {
 //登录api
 export const login = async (userInfo) => {
     try {
-        userInfo;
         const res = await requrl.post('/users/login', userInfo);
         return(res.data);
     } catch (error) {
