@@ -11,8 +11,17 @@ let search = () => {
     console.log('点击了')
 }
 
+//添加页面验证跳转
+const add = () => {
+  if(userStore.userData.token){
+    router.push('/upload')
+  }else{
+      router.push('/login')
+  }
+}
+
 let logoImg = ref('https://upload.wikimedia.org/wikipedia/commons/1/1a/Dolby_logo_2019.svg')
-let headImg = ref('https://shef.cc/wp-content/uploads/Mitsushi_MtF_Flag.png')
+let headImg = ref('https://img2.imgtp.com/2024/04/09/OmWWam4c.jpg')
 </script>
 
 <template>
@@ -28,9 +37,7 @@ let headImg = ref('https://shef.cc/wp-content/uploads/Mitsushi_MtF_Flag.png')
                     </router-link>
                 </div>
                 <div class="flex mr-1 ml-1">
-                    <router-link to="/upload">
-                        <n-button strong secondary round @click="search" class="hover:scale-110 transform transition-transform duration-300">添加</n-button>
-                    </router-link>
+                    <n-button strong secondary round @click="add" class="hover:scale-110 transform transition-transform duration-300">添加</n-button>
                 </div>
                 <div class="flex mr-0 ml-3">
                     <n-input round placeholder="搜索">
@@ -45,9 +52,9 @@ let headImg = ref('https://shef.cc/wp-content/uploads/Mitsushi_MtF_Flag.png')
             </div>
             <div class="flex flex-end mr-6">
             <!--根据是否登录渲染-->
-              <div v-if="userStore.userToken">
+              <div v-if="userStore.userData.token">
                 <router-link to="/my">
-                  <n-avatar round size="large" class="p-1" :src="headImg" />
+                  <n-avatar round size="large" class="" :src="headImg" />
                 </router-link>
                 <div>欢迎你{{userStore.userData.user_name}}</div>
               </div>

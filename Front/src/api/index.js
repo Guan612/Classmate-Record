@@ -12,7 +12,7 @@ const requrl =  axios.create({
 //请求拦截器
 requrl.interceptors.request.use(function (config) {
     const userStore = useUserStore()
-    const token = userStore.userToken;
+    const token = userStore.userData.token
     if (token) {
         config.headers.Authorization = `Bearer ${token}`
     }
